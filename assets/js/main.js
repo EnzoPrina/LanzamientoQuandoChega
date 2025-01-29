@@ -19,6 +19,29 @@ if(navClose){
         navMenu.classList.remove('show-menu')
     })
 }
+
+
+const modalViews = document.querySelectorAll('.services__modal');
+const modalBtns = document.querySelectorAll('.services__button');
+const modalCloses = document.querySelectorAll('.services__modal-close');
+
+let modal = function (modalClick) {
+    modalViews[modalClick].classList.add('active-modal');
+};
+
+modalBtns.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+        modal(i);
+    });
+});
+
+modalCloses.forEach((close) => {
+    close.addEventListener('click', () => {
+        modalViews.forEach((modalView) => {
+            modalView.classList.remove('active-modal');
+        });
+    });
+});
 /*==================== REMOVE MENU MOBILE ====================*/
 
 const navLink = document.querySelectorAll('.nav__link')
